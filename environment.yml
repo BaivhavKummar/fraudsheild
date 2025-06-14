@@ -1,0 +1,23 @@
+name: fraudsheild-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - jupyterlab
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - xgboost
+  - shap
+  - streamlit
+  - imbalanced-learn
+  - pip
+  - pip:
+      - streamlit-folium
+      - plotly
+      - pydeck
+      - altair
+      - statsmodels
