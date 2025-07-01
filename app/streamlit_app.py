@@ -34,17 +34,20 @@ if st.sidebar.button("🔁 Fill Normal Transaction"):
     st.sidebar.success("Filled with normal transaction.")
 elif st.sidebar.button("🚨 Fill Fraudulent Transaction"):
     input_data = {
-        'Time': 406.0,
-        'Amount': 212.0,
-        'V1': -1.3598, 'V2': -0.0727, 'V3': 2.5363, 'V4': 1.3781,
-        'V5': -0.3383, 'V6': 0.4624, 'V7': 0.2396, 'V8': 0.0987,
-        'V9': 0.3638, 'V10': 0.0908, 'V11': -0.5516, 'V12': -0.6178,
-        'V13': -0.9914, 'V14': -0.3112, 'V15': 1.4681, 'V16': -0.4704,
-        'V17': 0.2079, 'V18': 0.0258, 'V19': 0.4039, 'V20': 0.2514,
-        'V21': -0.0183, 'V22': 0.2777, 'V23': -0.1104, 'V24': -0.2862,
-        'V25': 0.0272, 'V26': 0.3049, 'V27': 0.0785, 'V28': 0.0090
+        'Time': 86400,
+        'Amount': 1500.00,
+        'V1': -3.2,
+        'V2': 4.5,
+        'V3': -2.7,
+        'V4': 1.8,
+        'V5': -4.1
     }
-    st.sidebar.warning("Filled with fraudulent transaction.")
+    # Fill V6 to V28 with alternating skewed abnormal patterns
+    for i in range(6, 29):
+        # Example pattern: odd indices → positive, even → negative
+        input_data[f'V{i}'] = round((i % 2) * 4.0 - 2.0, 2)  # results in [-2.0, 2.0, -2.0, 2.0, ...]
+    
+    st.sidebar.warning("Filled with simulated *likely fraudulent* transaction.")
 
 # Manual inputs
 for feature in features:
