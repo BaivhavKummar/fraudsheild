@@ -28,6 +28,7 @@ for col in ['Time', 'Amount'] + [f'V{i}' for i in range(1, 29)]:
 # Score transaction
 if st.button("⚡ Analyze Transaction"):
     with st.spinner("Scoring..."):
+        input_data["id"] = 0 
         result = scorer.score_transaction(input_data)
         
         st.success(f"**Prediction:** {'Fraud' if result['prediction'] else 'Not Fraud'}")
