@@ -2,6 +2,9 @@
 
 import streamlit as st
 import pandas as pd
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from src.fraud_scorer import FraudScorer
 import shap
 import joblib
