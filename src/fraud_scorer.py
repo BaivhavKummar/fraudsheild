@@ -19,6 +19,8 @@ class FraudScorer:
         Returns: predicted class, fraud probability (threat score), threat flag.
         """
         input_df = pd.DataFrame([input_dict])
+        if "id" in input_df.columns:
+            input_df = input_df.drop(columns=["id"])
         X_preprocessed = self.preprocessor.transform(input_df)
         
         prob = self.model.predict_proba(X_preprocessed)[0][1]  # probability of fraud
