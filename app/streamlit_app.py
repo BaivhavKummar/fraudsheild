@@ -41,8 +41,12 @@ elif st.sidebar.button("🚨 Fill Fraudulent Transaction"):
 
 # Manual inputs
 for feature in features:
-    input_data[feature] = st.sidebar.number_input(feature, value=input_data.get(feature, 0.00), step=0.01, format="%.2f")
-
+    input_data[feature] = st.sidebar.number_input(
+        feature, 
+        value=float(input_data.get(feature, 0.00)),  # 👈 force float
+        step=0.01,
+        format="%.2f"
+    )
 # Add required 'id'
 input_data["id"] = 0
 
