@@ -66,7 +66,6 @@ if st.button("⚡ Analyze Transaction"):
         preprocessed = scorer.preprocessor.transform(input_df)
         shap_values = explainer(preprocessed)
 
-        st.set_option('deprecation.showPyplotGlobalUse', False)
         shap.plots.waterfall(shap_values[0], show=False)
         st.pyplot(bbox_inches='tight')
 
